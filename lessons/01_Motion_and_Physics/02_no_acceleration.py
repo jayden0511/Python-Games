@@ -41,7 +41,7 @@ while running:
 
     # Fill the screen with black (clears previous frame)
     screen.fill((0, 0, 0))
-
+ 
     # Draw the red square
     pygame.draw.rect(screen, SQUARE_COLOR, (x_pos, y_pos, SQUARE_SIZE, SQUARE_SIZE))
 
