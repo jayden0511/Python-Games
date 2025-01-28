@@ -18,8 +18,8 @@ class Settings:
     black: tuple = (0, 0, 0)
     red: tuple = (255, 0, 0)
     player_size: int = 20
-    gravity: int = 1
-    jump_y_velocity: int = 5
+    gravity: int = 1      
+    jump_y_velocity: int = 30 
     jump_x_velocity: int = 10
 
 # Initialize Pygame
@@ -50,17 +50,24 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        keys = pygame.key.get_pressed() 
+       
+    if keys[pygame.K_a]:
+        player_x_velocity = -settings.jump_x_velocity    
+    if keys[pygame.K_d]:
+        player_x_velocity = +settings.jump_x_velocity    
 
     # Continuously jump. If the player is not jumping, make it jump
     if is_jumping is False:
-        # Jumping means that the player is going up. The top of the 
-        # screen is y=0, and the bottom is y=settings.screen_height. So, to go up,
-        # we need to have a negative y velocity
+        if keys[pygame.K_SPACE]:
+            # Jumping means that the player is going up. The top of the 
+            # screen is y=0, and the bottom is y=settings.screen_height. So, to go up,
+            # we need to have a negative y velocity
         
-        player_y_velocity = -settings.jump_y_velocity
-        player_x_velocity = settings.jump_x_velocity * x_direction
+            player_y_velocity = -settings.jump_y_velocity
+            # player_x_velocity = settings.jump_x_velocity * x_direction
         
-        is_jumping = True
+            is_jumping = True
         
     else: # the player is jumping
         # Update player position. Gravity is always pulling the player down,
@@ -70,7 +77,7 @@ while running:
 
         player_y_velocity += settings.gravity
         player.y += player_y_velocity
-        player.x += player_x_velocity
+    player.x += player_x_velocity
         
     # If the player hits one side of the screen or the other, bounce the player
     if player.left <= 0 or player.right >= settings.screen_width:
@@ -90,7 +97,7 @@ while running:
         player.bottom = settings.screen_height
         player_y_velocity = 0
         
-        player_x_velocity = 0
+        # player_x_velocity = 0
         
         is_jumping = False
 

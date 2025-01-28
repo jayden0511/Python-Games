@@ -51,7 +51,7 @@ player = pygame.Rect(settings.player_x,
 player_y_velocity = 0
 is_jumping = False
 
-# Main game loop
+# Main game    loop
 running = True
 clock = pygame.time.Clock()
 
