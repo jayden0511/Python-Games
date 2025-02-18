@@ -8,7 +8,7 @@ allows for more complex games with multiple objects.
 
 """
 import pygame
-
+ 
 
 class Colors:
     """Constants for Colors"""
@@ -28,7 +28,7 @@ class GameSettings:
     player_v_x: float = 7  # Initial x velocity
     player_width: int = 20
     player_height: int = 20
-    player_jump_velocity: float = 15
+    player_jump_velocity: float = 1
 
 
 class Game:
