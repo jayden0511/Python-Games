@@ -4,7 +4,7 @@ import math
 
 from jtlgames.vector20 import Vector20Factory
 
-# Initialize pygame
+# Initialize pygame 
 pygame.init()
 
 # Screen setup
