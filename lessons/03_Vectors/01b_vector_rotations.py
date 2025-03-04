@@ -25,7 +25,7 @@ v1_scaled = v1 * 5
 start = draw_v20(screen, v0, v1_scaled)
 
 v1_rotated = v1.rotate(135) * 10 
-start = draw_v20(screen, v0, v1_rotated)
+start = draw_v20(screen, v0, v1_rotated) 
 
 # Update display
 pygame.display.flip()
