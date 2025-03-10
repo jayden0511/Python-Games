@@ -2,20 +2,20 @@ import pygame
 import math
 
 # Initialize Pygame
-pygame.init()
+pygame.init() 
 
 # Settings class
 class Settings:
     """A class to store all settings for the game."""
     SCREEN_WIDTH = 800
-    SCREEN_HEIGHT = 600 
+    SCREEN_HEIGHT = 600  
     PLAYER_SIZE = 20
     LINE_COLOR = (82, 213, 191)
     PLAYER_COLOR = (169, 27, 237)
     BACKGROUND_COLOR = (255, 255, 255)
     TEXT_COLOR = (0, 0, 0) 
     FPS = 30
-    ANGLE_CHANGE = 3
+    ANGLE_CHANGE = 3 
     LENGTH_CHANGE = 5
     INITIAL_LENGTH = 100
     FONT_SIZE = 24
