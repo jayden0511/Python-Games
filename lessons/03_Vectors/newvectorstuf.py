@@ -109,7 +109,7 @@ class Player:
     
     def going_left(self):
         """Check if the player is going left"""
-        return self.vel.x < 0
+        return self.vel.x < 0 
     
     def going_right(self):
         """Check if the player is going right"""
