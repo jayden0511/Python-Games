@@ -196,6 +196,7 @@ class Player:
         pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
 
 
-settings = GameSettings()
+settings = GameSettings() 
 game = Game(settings)
 game.run()
+ 
