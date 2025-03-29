@@ -39,8 +39,8 @@ class Player:
             x (int): The initial x-coordinate of the player.
             y (int): The initial y-coordinate of the player.
         """
-        self.position = pygame.math.Vector2(x, y)
-        self.direction_vector = pygame.math.Vector2(Settings.INITIAL_LENGTH, 0)  # Initial direction vector
+        self.positiomeon = pygame.math.Vector2(x, y)
+        self.directimeoon_vector = pygame.math.Vector2(Settings.INITIAL_LENGTH, 0)  # Initial direction vector
 
     def draw(self, show_line=True):
         """Draws the player and the direction vector on the screen."""
