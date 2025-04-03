@@ -88,14 +88,18 @@ class Player:
         self.positiomeon = pygame.math.Vector2(x, y)
         self.directimeoon_vector = pygame.math.Vector2(GameSettings.INITIAL_LENGTH, 0)  # Initial direction vector
     def main():
-        player = Player(GameSettings.SCREEN_WIDTH // 2, GameSettings.SCREEN_HEIGHT // 2)
-        running = True    
-        keys = pygame.key.get_pressed()
+        key_limit = 0
+        while running:
+            key_limit += 1
+            player = player(GameSettings.SCREEN_WIDTH // 2, GameSettings.SCREEN_HEIGHT // 2)
+            running = True    
+            pygame.key.set_repeat(50, 50)
+            keys = pygame.key.get_pressed()
         
-        if keys[pygame.K_UP]:
-            player.direction_vector.scale_to_length(player.direction_vector.length() + GameSettings.LENGTH_CHANGE)
-        elif keys[pygame.K_DOWN]:
-            player.direction_vector.scale_to_length(player.direction_vector.length() - GameSettings.LENGTH_CHANGE)
+            if keys[pygame.K_UP]:
+                player.direction_vector.scale_to_length(player.direction_vector.length() + GameSettings.LENGTH_CHANGE)
+            elif keys[pygame.K_DOWN]:
+                player.direction_vector.scale_to_length(player.direction_vector.length() - GameSettings.LENGTH_CHANGE)
 
     def __init__(self, game: Game):
         self.game = game
@@ -105,7 +109,7 @@ class Player:
         self.height = settings.player_height
     
         # Vector for our jump velocity, which is just up
-        self.thrust = pygame.Vector2(9, -settings.player_jump_velocity)
+        self.thrust = pygame.Vector2(1, -settings.player_jump_velocity)
 
         # Player position
         self.pos = pygame.Vector2(settings.player_start_x, 
@@ -189,7 +193,7 @@ class Player:
         # If the player is at the bottom, stop the player from falling and
         # stop the jump
         
-        if self.at_bottom():
+        if self.at_bottom(): 
             self.pos.y = self.game.settings.height - self.height
 
         if self.at_top():
