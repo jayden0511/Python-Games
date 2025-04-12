@@ -31,12 +31,11 @@ class GameSettings:
     player_v_y: float = 0  # Initial y velocity
     player_v_x: float = 4  # Initial x velocity
     player_width: int = 20
-    player_height: int = 20  
+    player_height: int = 20 
     player_jump_velocity: float = 15
     frame_rate: int = 30
 
 
-     
 class Game:
     """Main object for the top level of the game. Holds the main loop and other
     update, drawing and collision methods that operate on multiple other
@@ -52,7 +51,7 @@ class Game:
         self.clock = pygame.time.Clock()
 
         # Turn Gravity into a vector
-        self.gravity = pygame.Vector2(1, self.settings.gravity)
+        self.gravity = pygame.Vector2(0, self.settings.gravity)
 
     def run(self):
         """Main game loop"""
@@ -70,36 +69,11 @@ class Game:
             pygame.display.flip()
             self.clock.tick(self.settings.frame_rate)
 
-            self.position = pygame.math.Vector2()
-        self.direction_vector = pygame.math.Vector2(GameSettings.INITIAL_LENGTH, 0)  # Initial direction vector
-
         pygame.quit()
 
 
 class Player:
     """Player class, just a bouncing rectangle"""
-    def __init__(self, x, y):
-        """Initializes the Player with a position and direction vector.
-
-        Args:
-            x (int): The initial x-coordinate of the player.
-            y (int): The initial y-coordinate of the player.
-        """
-        self.positiomeon = pygame.math.Vector2(x, y)
-        self.directimeoon_vector = pygame.math.Vector2(GameSettings.INITIAL_LENGTH, 0)  # Initial direction vector
-    def main():
-        key_limit = 0
-        while running:
-            key_limit += 1
-            player = player(GameSettings.SCREEN_WIDTH // 2, GameSettings.SCREEN_HEIGHT // 2)
-            running = True    
-            pygame.key.set_repeat(50, 50)
-            keys = pygame.key.get_pressed()
-        
-            if keys[pygame.K_UP]:
-                player.direction_vector.scale_to_length(player.direction_vector.length() + GameSettings.LENGTH_CHANGE)
-            elif keys[pygame.K_DOWN]:
-                player.direction_vector.scale_to_length(player.direction_vector.length() - GameSettings.LENGTH_CHANGE)
 
     def __init__(self, game: Game):
         self.game = game
@@ -109,7 +83,7 @@ class Player:
         self.height = settings.player_height
     
         # Vector for our jump velocity, which is just up
-        self.thrust = pygame.Vector2(1, -settings.player_jump_velocity)
+        self.thrust = pygame.Vector2(9, -settings.player_jump_velocity)
 
         # Player position
         self.pos = pygame.Vector2(settings.player_start_x, 
@@ -118,6 +92,7 @@ class Player:
         # Player's velocity
         self.vel = pygame.Vector2(settings.player_v_x, settings.player_v_y)  # Velocity vector
         
+
 
     # Direction functions. IMPORTANT! Using these functions isn't really
     # necessary, but it makes the code more readable. You could just use
@@ -166,6 +141,7 @@ class Player:
         self.update_jump()
         self.update_v()
         self.update_pos()
+        self.update_input()
         
     def update_v(self):
         """Update the player's velocity based on gravity and bounce on edges"""
@@ -193,7 +169,7 @@ class Player:
         # If the player is at the bottom, stop the player from falling and
         # stop the jump
         
-        if self.at_bottom(): 
+        if self.at_bottom():
             self.pos.y = self.game.settings.height - self.height
 
         if self.at_top():
@@ -215,13 +191,16 @@ class Player:
         # check if the player is at the bottom. 
         if self.at_bottom() and keys[pygame.K_SPACE]:
             self.vel += self.thrust
-         
+    def update_input(self): 
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_DOWN]:
+            print("Hello")
+            self.thrust.scale_to_length(self.thrust.length() - settings.)
 
     def draw(self, screen):
         pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
 
 
-settings = GameSettings() 
+settings = GameSettings()
 game = Game(settings)
 game.run()
- 
