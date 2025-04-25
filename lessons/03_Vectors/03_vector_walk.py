@@ -84,7 +84,6 @@ def draw_vector_info(player):
     vector_text = f"Vector: ({direction_x:.2f}, {direction_y:.2f})"
     magnitude_text = f"Magnitude: {magnitude:.2f}"
     angle_text = f"Angle: {angle:.2f}°"
-
     # Render the text
     vector_surface = font.render(vector_text, True, Settings.TEXT_COLOR)
     magnitude_surface = font.render(magnitude_text, True, Settings.TEXT_COLOR)

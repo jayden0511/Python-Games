@@ -91,7 +91,6 @@ class Player:
         
         # Player's velocity
         self.vel = pygame.Vector2(settings.player_v_x, settings.player_v_y)  # Velocity vector
-        
 
 
     # Direction functions. IMPORTANT! Using these functions isn't really
@@ -194,14 +193,15 @@ class Player:
     def update_input(self): 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_DOWN]:
-            #self.vel += self.thrust
-            #self.thrust.scale_to_length(self.thrust.length() - settings.gravity)
+            self.thrust.scale_to_length(self.thrust.length() - settings.gravity)
             self.pos += self.thrust
-            #
+        elif keys[pygame.K_UP]:
+            self.vel.scale_to_length(self.vel.length() + 10)
 
     def draw(self, screen):
         pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
-
+        pygame.draw.line(screen, Colors.RED, (self.pos.x + self.width/2, self.pos.y + self.height/2), (self.pos.x + self.width/2 - self.vel.x, self.pos.y + self.height/2 - self.vel.y),2)
+        self.vel.scale_to_length(10)
 
 settings = GameSettings()
 game = Game(settings)
