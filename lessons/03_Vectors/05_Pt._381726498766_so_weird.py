@@ -197,7 +197,7 @@ class Player:
             self.pos += self.thrust
         elif keys[pygame.K_UP]:
             #print(self.vel.length())
-            self.thrust.scale_to_length(self.thrust.length() + 140)
+            self.thrust.scale_to_length(self.thrust.length() + 140) 
 
     def draw(self, screen):
         pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
