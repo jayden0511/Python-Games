@@ -79,7 +79,7 @@ class Player:
         self.game = game
         settings = self.game.settings
 
-        self.width = settings.player_width
+        self.width = settings.player_width 
         self.height = settings.player_height
     
         # Vector for our jump velocity, which is just up
@@ -204,6 +204,7 @@ class Player:
         pygame.draw.line(screen, Colors.RED, (self.pos.x + self.width/2, self.pos.y + self.height/2), (self.pos.x + self.width/2 - self.thrust.x, self.pos.y + self.height/2 - self.thrust.y),2)
         self.thrust.scale_to_length(30)
         # print(str(self.thrust.x) + "   " + str(self.thrust.y))
+    
 
 settings = GameSettings()
 game = Game(settings)
