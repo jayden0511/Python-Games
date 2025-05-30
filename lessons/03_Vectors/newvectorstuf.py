@@ -19,7 +19,7 @@ class Colors:
     PLAYER_COLOR = (0, 0, 255)
     BACKGROUND_COLOR = (255, 255, 255)
 
-
+ 
 @dataclass
 class GameSettings:
     """Settings for the game"""
