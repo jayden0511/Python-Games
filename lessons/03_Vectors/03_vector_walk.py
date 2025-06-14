@@ -69,7 +69,7 @@ class Player:
         for i in range(N):
             self.position += step
             screen.fill(Settings.BACKGROUND_COLOR)
-            self.draw(show_line=False)
+            self.draw(show_line=False) 
             pygame.draw.line(screen, Settings.LINE_COLOR, init_position, final_position, 2)
             pygame.display.flip()
             clock.tick(Settings.FPS)
