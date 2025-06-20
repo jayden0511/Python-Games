@@ -193,11 +193,10 @@ class Player:
     def update_input(self): 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_DOWN]:
-            self.thrust.scale_to_length(self.thrust.length() - settings.gravity)
-            self.pos += self.thrust
+            self.vel.scale_to_length(self.vel.length()/2)
         elif keys[pygame.K_UP]:
             #print(self.vel.length())
-            self.thrust.scale_to_length(self.thrust.length() + 140) 
+            self.vel.scale_to_length(self.vel.length()*15) 
  
     def draw(self, screen):
         pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
