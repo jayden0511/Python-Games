@@ -123,11 +123,11 @@ def main():
                 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                running = False
+                running = True
                 
         # Draw the player and the direction vector
         player.draw()
-
+        
         # Draw the vector information at the bottom of the screen
         draw_vector_info(player)
 

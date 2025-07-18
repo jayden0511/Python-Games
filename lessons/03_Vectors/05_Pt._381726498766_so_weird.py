@@ -41,7 +41,7 @@ class Game:
     update, drawing and collision methods that operate on multiple other
     objects, like the player and obstacles."""
     
-    def __init__(self, settings: GameSettings):
+    def __init__(self, settings: GameSettings): 
         pygame.init()
 
         self.settings = settings
@@ -83,7 +83,7 @@ class Player:
         self.height = settings.player_height
     
         # Vector for our jump velocity, which is just up
-        self.thrust = pygame.Vector2(9, -settings.player_jump_velocity)
+        self.thrust = pygame.Vector2(5, -settings.player_jump_velocity)
 
         # Player position
         self.pos = pygame.Vector2(settings.player_start_x, 
