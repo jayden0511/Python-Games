@@ -68,6 +68,9 @@ class Game:
             player.draw(self.screen)
             pygame.display.flip()
             self.clock.tick(self.settings.frame_rate)
+            def main():
+                self.running = Player(GameSettings.SCREEN_WIDTH // 2, GameSettings.SCREEN_HEIGHT // 2)
+                running = False
 
         pygame.quit()
 

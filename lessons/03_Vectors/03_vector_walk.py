@@ -102,7 +102,7 @@ def main():
     
     key_limit = 0
     while running:
-        key_limit += 1
+        key_limit += 2
         
         screen.fill(Settings.BACKGROUND_COLOR)
         

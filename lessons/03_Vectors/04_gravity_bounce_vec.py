@@ -168,7 +168,7 @@ class Player:
         # If the player is at the bottom, stop the player from falling and
         # stop the jump
         
-        if self.at_bottom():
+        if self.at_bottom(): 
             self.pos.y = self.game.settings.height - self.height
 
         if self.at_top():
