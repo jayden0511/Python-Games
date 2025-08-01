@@ -8,7 +8,7 @@ understandable, and makes it easier to add more complex features to the game.
 
 """
 import pygame
-from dataclasses import dataclass
+from dataclasses import dataclass 
 
 
 class Colors:
