@@ -8,7 +8,7 @@ understandable, and makes it easier to add more complex features to the game.
 
 """
 import pygame
-from dataclasses import dataclass 
+from dataclasses import dataclass
 
 
 class Colors:
@@ -147,7 +147,7 @@ class Player:
         
     def update_v(self):
         """Update the player's velocity based on gravity and bounce on edges"""
-        self.vel *= 0.99
+        self.vel *= 0.994         
         self.vel += self.game.gravity  # Add gravity to the velocity
 
         if self.at_bottom() and self.going_down():
