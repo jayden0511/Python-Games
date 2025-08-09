@@ -11,7 +11,7 @@ class Settings:
     SCREEN_HEIGHT = 600  
     PLAYER_SIZE = 20
     LINE_COLOR = (82, 213, 191)
-    PLAYER_COLOR = (169, 27, 237)
+    PLAYER_COLOR = (255, 255, 255)
     BACKGROUND_COLOR = (255, 255, 255)
     TEXT_COLOR = (0, 0, 0) 
     FPS = 30

@@ -16,7 +16,8 @@ class Colors:
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
     RED = (255, 0, 0)
-    PLAYER_COLOR = (0, 0, 255)
+    RANDOM_COLOR = (130, 252, 146)
+    PLAYER_COLOR = (255, 255, 255)
     BACKGROUND_COLOR = (255, 255, 255)
 
 
@@ -203,7 +204,7 @@ class Player:
  
     def draw(self, screen):
         pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
-        pygame.draw.line(screen, Colors.RED, (self.pos.x + self.width/2, self.pos.y + self.height/2), (self.pos.x + self.width/2 + self.vel[0], self.pos.y + self.height/2 + self.vel[1]),2)
+        pygame.draw.line(screen, Colors.RANDOM_COLOR, (self.pos.x + self.width/2, self.pos.y + self.height/2), (self.pos.x + self.width/2 + self.vel[0], self.pos.y + self.height/2 + self.vel[1]),2)
         self.thrust.scale_to_length(100)
         # print(str(self.thrust.x) + "   " + str(self.thrust.y))
     
