@@ -52,7 +52,7 @@ class Player:
         if show_line:
             pygame.draw.line(screen, Settings.LINE_COLOR, self.position, end_position, 2)
 
-    def move(self):
+    def move(self): 
         """Moves the player in the direction of the current angle."""
         
         

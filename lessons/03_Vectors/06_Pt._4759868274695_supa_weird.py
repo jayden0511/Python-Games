@@ -16,8 +16,9 @@ class Colors:
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
     RED = (255, 0, 0)
-    RANDOM_COLOR = (130, 252, 146)
-    PLAYER_COLOR = (255, 255, 255)
+    RANDOM_COLOR = (92, 234, 121)
+    RANDOM_COLOR = (49, 108, 182)
+    PLAYER_COLOR = (137, 255, 255)
     BACKGROUND_COLOR = (255, 255, 255)
 
 
@@ -33,7 +34,7 @@ class GameSettings:
     player_v_x: float = 4  # Initial x velocity
     player_width: int = 20
     player_height: int = 20 
-    player_jump_velocity: float = 1
+    player_jump_velocity: float = 10
     frame_rate: int = 30
 
 
@@ -54,7 +55,7 @@ class Game:
         # Turn Gravity into a vector
         self.gravity = pygame.Vector2(0, self.settings.gravity)
 
-    def run(self):
+    def run(self): 
         """Main game loop"""
         player = Player(self)
 
@@ -180,7 +181,7 @@ class Player:
 
         # Don't let the player go off the left side of the screen
         if self.at_left():
-            self.pos.x = 0
+            self.pos.x = 0 
   
         # Don't let the player go off the right side of the screen
         elif self.at_right():
@@ -201,11 +202,13 @@ class Player:
         elif keys[pygame.K_UP]:
             #print(self.vel.length())
             self.vel.scale_to_length(self.vel.length()*2) 
- 
-    def draw(self, screen):
-        pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
-        pygame.draw.line(screen, Colors.RANDOM_COLOR, (self.pos.x + self.width/2, self.pos.y + self.height/2), (self.pos.x + self.width/2 + self.vel[0], self.pos.y + self.height/2 + self.vel[1]),2)
-        self.thrust.scale_to_length(100)
+        elif keys[pygame.K_LEFT]:
+
+            
+            def draw(self, screen):
+                pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
+                pygame.draw.line(screen, Colors.RANDOM_COLOR, (self.pos.x + self.width/2, self.pos.y + self.height/2), (self.pos.x + self.width/2 + self.vel[0], self.pos.y + self.height/2 + self.vel[1]),2)
+        
         # print(str(self.thrust.x) + "   " + str(self.thrust.y))
     
 
