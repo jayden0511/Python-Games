@@ -20,6 +20,8 @@ class Colors:
     BACKGROUND_COLOR = (255, 255, 255)
 
 
+
+
 @dataclass
 class GameSettings:
     """Settings for the game"""
@@ -199,7 +201,12 @@ class Player:
             self.vel.scale_to_length(self.vel.length()/2)
         elif keys[pygame.K_UP]:
             #print(self.vel.length())
-            self.vel.scale_to_length(self.vel.length()*2) 
+            self.vel.scale_to_length(self.vel.length()*2)
+        elif keys[pygame.K_LEFT]:
+            self.vel.scale_to_length(self.vel.length()+2)
+        elif keys[pygame.K_RIGHT]:
+            self.thrust.scale_to_length(self.vel.length()+2)
+ 
  
     def draw(self, screen):
         pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))

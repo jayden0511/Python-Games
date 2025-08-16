@@ -22,7 +22,7 @@ class Colors:
     BACKGROUND_COLOR = (255, 255, 255)
 
 
-@dataclass
+@dataclass 
 class GameSettings:
     """Settings for the game"""
     width: int = 500
