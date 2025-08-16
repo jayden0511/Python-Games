@@ -58,7 +58,7 @@ class Game:
     def run(self): 
         """Main game loop"""
         player = Player(self)
-
+ 
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
@@ -203,6 +203,9 @@ class Player:
             #print(self.vel.length())
             self.vel.scale_to_length(self.vel.length()*2) 
         elif keys[pygame.K_LEFT]:
+            self.vel.scale_to_length(self.vel.lenght()-2)
+        elif keys[pygame.K_RIGHT]:
+            self.vel.scale_to_length(self.vel.length()+2)
 
             
             def draw(self, screen):

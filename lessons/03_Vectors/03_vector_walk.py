@@ -10,7 +10,7 @@ class Settings:
     SCREEN_WIDTH = 800
     SCREEN_HEIGHT = 600  
     PLAYER_SIZE = 20
-    LINE_COLOR = (82, 213, 191)
+    LINE_COLOR = (82, 213, 191) 
     PLAYER_COLOR = (255, 255, 255)
     BACKGROUND_COLOR = (255, 255, 255)
     TEXT_COLOR = (0, 0, 0) 
