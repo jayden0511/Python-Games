@@ -54,7 +54,8 @@ class Game:
 
         # Turn Gravity into a vector
         self.gravity = pygame.Vector2(0, self.settings.gravity)
-
+    
+        
     def run(self): 
         """Main game loop"""
         player = Player(self)
@@ -187,7 +188,7 @@ class Player:
         elif self.at_right():
             self.pos.x = self.game.settings.width - self.width
 
-    def update_jump(self):
+    def update_jump(self): 
         """Handle the player's jumping logic"""
         keys = pygame.key.get_pressed()
         
@@ -202,16 +203,18 @@ class Player:
         elif keys[pygame.K_UP]:
             #print(self.vel.length())
             self.vel.scale_to_length(self.vel.length()*2) 
-        elif keys[pygame.K_LEFT]:
-            self.vel.scale_to_length(self.vel.lenght()-2)
-        elif keys[pygame.K_RIGHT]:
+        elif keys[pygame.K_a]:
+            self.vel.scale_to_length(self.vel.length()-2)
+        elif keys[pygame.K_d]:
             self.vel.scale_to_length(self.vel.length()+2)
-
-            
-            def draw(self, screen):
-                pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
-                pygame.draw.line(screen, Colors.RANDOM_COLOR, (self.pos.x + self.width/2, self.pos.y + self.height/2), (self.pos.x + self.width/2 + self.vel[0], self.pos.y + self.height/2 + self.vel[1]),2)
         
+        
+        
+            
+    def draw(self, screen):
+        pygame.draw.rect(screen, Colors.PLAYER_COLOR, (self.pos.x, self.pos.y, self.width, self.height))
+        pygame.draw.line(screen, Colors.RANDOM_COLOR, (self.pos.x + self.width/2, self.pos.y + self.height/2), (self.pos.x + self.width/2 + self.vel[0], self.pos.y + self.height/2 + self.vel[1]),2)
+
         # print(str(self.thrust.x) + "   " + str(self.thrust.y))
     
 
