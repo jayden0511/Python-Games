@@ -26,7 +26,7 @@ pygame.display.set_caption("Player with Direction Vector")
 
 # Clock to control frame rate
 clock = pygame.time.Clock()
-
+ 
 # Font for displaying vector information
 font = pygame.font.Font(None, Settings.FONT_SIZE)
 

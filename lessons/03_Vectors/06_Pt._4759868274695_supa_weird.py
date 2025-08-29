@@ -221,3 +221,4 @@ class Player:
 settings = GameSettings()
 game = Game(settings)
 game.run()
+ 
