@@ -13,7 +13,7 @@ class Settings:
     LINE_COLOR = (82, 213, 191) 
     PLAYER_COLOR = (255, 255, 255)
     BACKGROUND_COLOR = (255, 255, 255)
-    TEXT_COLOR = (0, 0, 0) 
+    TEXT_COLOR = (0, 0, 0)  
     FPS = 30
     ANGLE_CHANGE = 3 
     LENGTH_CHANGE = 5

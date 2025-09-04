@@ -156,7 +156,7 @@ class Player:
         if self.at_bottom() and self.going_down():
             self.vel.y = 0
 
-        if self.at_top() and self.going_up():
+        if self.at_top() and self.going_up():  
             self.vel.y = -self.vel.y # Bounce off the top.  
 
         # If the player hits one side of the screen or the other, bounce the
@@ -203,6 +203,11 @@ class Player:
         elif keys[pygame.K_UP]:
             #print(self.vel.length())
             self.vel.scale_to_length(self.vel.length()*2) 
+        elif keys[pygame.K_LEFT]:
+            player_x_velocity = -self.thrust
+        elif keys[pygame.K_RIGHT]:
+            player_x_velocity = +self.thrust
+
         elif keys[pygame.K_a]:
             self.vel.scale_to_length(self.vel.length()-2)
         elif keys[pygame.K_d]:
