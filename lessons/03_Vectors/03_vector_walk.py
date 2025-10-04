@@ -10,7 +10,7 @@ class Settings:
     SCREEN_WIDTH = 800
     SCREEN_HEIGHT = 600  
     PLAYER_SIZE = 20
-    LINE_COLOR = (82, 213, 191) 
+    LINE_COLOR = (67, 67, 67) 
     PLAYER_COLOR = (255, 255, 255)
     BACKGROUND_COLOR = (255, 255, 255)
     TEXT_COLOR = (0, 0, 0)  
@@ -30,7 +30,6 @@ clock = pygame.time.Clock()
 # Font for displaying vector information
 font = pygame.font.Font(None, Settings.FONT_SIZE)
 
-# Player class
 class Player:
     def __init__(self, x, y):
         """Initializes the Player with a position and direction vector.

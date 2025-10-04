@@ -199,7 +199,7 @@ class Player:
     def update_input(self): 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_DOWN]:
-            self.vel.scale_to_length(self.vel.length()/2)
+            self.vel.scale_to_length(self.vel.length()/2)  
         elif keys[pygame.K_UP]:
             #print(self.vel.length())
             self.vel.scale_to_length(self.vel.length()*2) 

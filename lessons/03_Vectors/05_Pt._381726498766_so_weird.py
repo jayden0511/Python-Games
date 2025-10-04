@@ -17,7 +17,7 @@ class Colors:
     BLACK = (0, 0, 0)
     RED = (255, 0, 0)
     PLAYER_COLOR = (0, 0, 255) 
-    BACKGROUND_COLOR = (255, 255, 255)
+    BACKGROUND_COLOR = (67, 67, 67)
 
 
 
@@ -58,7 +58,6 @@ class Game:
     def run(self):
         """Main game loop"""
         player = Player(self)
-
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT or (event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE):
@@ -186,7 +185,7 @@ class Player:
         # Don't let the player go off the right side of the screen
         elif self.at_right():
             self.pos.x = self.game.settings.width - self.width
-
+ 
     def update_jump(self):
         """Handle the player's jumping logic"""
         keys = pygame.key.get_pressed()
