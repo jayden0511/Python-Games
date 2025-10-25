@@ -55,7 +55,7 @@ class Game:
         # Turn Gravity into a vector
         self.gravity = pygame.Vector2(0, self.settings.gravity)
     
-        
+         
     def run(self): 
         """Main game loop"""
         player = Player(self)
@@ -205,7 +205,7 @@ class Player:
             self.vel.scale_to_length(self.vel.length()*2) 
         elif keys[pygame.K_LEFT]:
             player_x_velocity = -self.thrust
-        elif keys[pygame.K_RIGHT]:
+        elif keys[pygame.K_RIGHT]:  
             player_x_velocity = +self.thrust
 
         elif keys[pygame.K_a]:
