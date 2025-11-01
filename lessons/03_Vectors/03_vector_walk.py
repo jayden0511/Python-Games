@@ -80,7 +80,7 @@ def draw_vector_info(player):
     angle = player.direction_vector.angle_to(pygame.math.Vector2(1, 0))  # Angle with respect to the x-axis
 
     # Prepare the text to display
-    vector_text = f"Vector: ({direction_x:.2f}, {direction_y:.2f})"
+    vector_text = f"Vector: ({direction_x:.2f}, {direction_y:.2f})" 
     magnitude_text = f"Magnitude: {magnitude:.2f}"
     angle_text = f"Angle: {angle:.2f}°"
     # Render the text             

@@ -8,10 +8,11 @@ understandable, and makes it easier to add more complex features to the game.
 
 """
 import pygame
+import math
 from dataclasses import dataclass
 
 
-class Colors:
+class Colors: 
     """Constants for Colors"""
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
@@ -24,11 +25,11 @@ class Colors:
 
 @dataclass 
 class GameSettings:
-    """Settings for the game"""
+    """Settings for the game"""                                                                                               
     width: int = 500
     height: int = 500
     gravity: float = 1
-    player_start_x: int = 100
+    player_start_x: int = 100 
     player_start_y: int = None
     player_v_y: float = 0  # Initial y velocity
     player_v_x: float = 4  # Initial x velocity
@@ -209,9 +210,9 @@ class Player:
             player_x_velocity = +self.thrust
 
         elif keys[pygame.K_a]:
-            self.vel.scale_to_length(self.vel.length()-2)
-        elif keys[pygame.K_d]:
             self.vel.scale_to_length(self.vel.length()+2)
+        elif keys[pygame.K_d]:
+            self.vel.scale_to_length(self.vel.length()-2)
         
         
         
@@ -226,4 +227,4 @@ class Player:
 settings = GameSettings()
 game = Game(settings)
 game.run()
- 
+  
