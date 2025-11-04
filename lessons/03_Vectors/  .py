@@ -82,7 +82,7 @@ class Game:
 class Player:
     """Player class, just a bouncing rectangle"""
 
-    def __init__(self, game: Game):
+    def __init__(self, game: Game): 
         self.game = game
         settings = self.game.settings
 
