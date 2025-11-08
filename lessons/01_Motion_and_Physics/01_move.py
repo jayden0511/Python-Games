@@ -25,7 +25,7 @@ pygame.display.set_caption("Move the Square")
 
 # Clock to control the frame rate
 clock = pygame.time.Clock()
-
+ 
 # Main function
 def main():
     # Initial position of the square

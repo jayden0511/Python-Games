@@ -18,7 +18,7 @@ for word in english_words:
         else:
             '''
             else get vowel position and postfix all the consonants 
-            present before that vowel to the end of the word along with "ay"
+            present before that vowel to the end of the word along with "ay". 
             '''
             
             if word[i] in vowels:
