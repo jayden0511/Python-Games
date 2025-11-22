@@ -17,10 +17,11 @@ class Colors:
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
     RED = (255, 0, 0)
-    RANDOM_COLOR = (92, 234, 121)
+    RANDOM_COLOR = (92, 234, 121) 
     RANDOM_COLOR = (49, 108, 182)
     PLAYER_COLOR = (137, 255, 255)
     BACKGROUND_COLOR = (255, 255, 255)
+    LINE_COLOR = (67, 189, 254)
 
 
 @dataclass 
@@ -31,6 +32,7 @@ class GameSettings:
     gravity: float = 1
     player_start_x: int = 100 
     player_start_y: int = None
+    player_size = 20
     player_v_y: float = 0  # Initial y velocity
     player_v_x: float = 4  # Initial x velocity
     player_width: int = 20
@@ -77,10 +79,32 @@ class Game:
             player.draw(self.screen)
             pygame.display.flip()
             self.clock.tick(self.settings.frame_rate)
-            def main():
-                self.running = Player(GameSettings.SCREEN_WIDTH // 2, GameSettings.SCREEN_HEIGHT // 2)
-                running = False
 
+            screen = pygame.display.set_mode((GameSettings.width, GameSettings.height))
+            pygame.display.set_caption("Player with Direction Vector")
+
+            def __init__(self, x, y):
+                """Initializes the Player with a position and direction vector.
+
+                Args:
+                    x (int): The initial x-coordinate of the player.
+                    y (int): The initial y-coordinate of the player.
+                """
+
+                self.position = pygame.math.Vector2(x,y)
+
+            def main():
+                self.running = Player(GameSettings.width // 2, GameSettings.height // 2)
+                running = False
+            def draw(self, show_line=True):
+                pygame.draw.rect(self.screen, GameSettings.player_size, (self.position.x - GameSettings.player_size // 2, self.position.y - GameSettings.player_size // 2, GameSettings.player_size, GameSettings.player_size))
+        
+            end_position = self.position + self.direction_vector
+
+            show_line=True
+        
+        if show_line:
+            pygame.draw.line(screen, GameSettings.LINE_COLOR, self.position, end_position, 2)
         pygame.quit()
 
 

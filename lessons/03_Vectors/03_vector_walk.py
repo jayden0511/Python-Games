@@ -8,7 +8,7 @@ pygame.init()
 class Settings:
     """A class to store all settings for the game."""
     SCREEN_WIDTH = 800
-    SCREEN_HEIGHT = 600  
+    SCREEN_HEIGHT = 600
     PLAYER_SIZE = 20
     LINE_COLOR = (67, 67, 67) 
     PLAYER_COLOR = (255, 255, 255)
@@ -64,7 +64,7 @@ class Player:
         length = self.direction_vector.length()
         N = int(length // 3)
         step = (final_position - self.position) / N
-                   
+                    
         for i in range(N):
             self.position += step
             screen.fill(Settings.BACKGROUND_COLOR)
