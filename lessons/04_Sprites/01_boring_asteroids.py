@@ -2,7 +2,7 @@ import pygame
 import math
 
 # Settings class to store game configuration
-class Settings:
+class Settings: 
     def __init__(self):
         self.width = 800
         self.height = 600
