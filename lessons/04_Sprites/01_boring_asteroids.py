@@ -6,13 +6,13 @@ class Settings:
     def __init__(self):
         self.width = 800
         self.height = 600
-        self.fps = 60
-        self.triangle_size = 20
-        self.projectile_speed = 5
+        self.fps = 60000
+        self.triangle_size = 200
+        self.projectile_speed = 50
         self.colors = {
-            'white': (255, 255, 255),
-            'black': (0, 0, 0),
-            'red': (255, 0, 0)
+            'white': (142, 145, 56),
+            'black': (243, 121, 16),
+            'red': (31, 129, 195)
         }
 
 # Spaceship class to handle player movement and drawing
