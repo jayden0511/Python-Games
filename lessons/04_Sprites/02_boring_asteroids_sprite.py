@@ -9,8 +9,8 @@ class Settings:
     height = 600
     fps = 60
     triangle_size = 20
-    projectile_speed = 0.99
-    projectile_size = 5
+    projectile_speed = 100
+    projectile_size = 250
     shoot_delay = 0.0002  # 250 milliseconds between shots, or 4 shots per second
     colors = {"white": (255, 255, 255), "black": (0, 0, 0), "red": (255, 0, 0)}
 
@@ -77,7 +77,7 @@ class Spaceship(pygame.sprite.Sprite):
         # need to add the projectile to the group to make sure it is updated.
         self.game.add(new_projectile)
 
-
+ 
     # The Sprite class defines an update method that is called every frame. We
     # can override this method to add our own functionality. In this case, we
     # are going to handle input and update the image of the spaceship. However,
