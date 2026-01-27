@@ -46,7 +46,7 @@ SCORE = 0
 main_dir = os.path.split(os.path.abspath(__file__))[0]
 
 
-def load_image(file):
+def load_image(file): 
     """loads an image, prepares it for play"""
     file = os.path.join(main_dir, "data", file)
     try:

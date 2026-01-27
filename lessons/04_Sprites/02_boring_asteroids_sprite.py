@@ -9,11 +9,11 @@ class Settings:
     height = 600
     fps = 60
     triangle_size = 20
-    projectile_speed = 100
-    projectile_size = 250
+    projectile_speed = 0.67
+    projectile_size = 50
     shoot_delay = 0.0002  # 250 milliseconds between shots, or 4 shots per second
     colors = {"white": (255, 255, 255), "black": (0, 0, 0), "red": (255, 0, 0)}
-
+        
 
 # Notice that this Spaceship class is a bit different: it is a subclass of
 # Sprite. Rather than a plain class, like in the previous examples, this class
