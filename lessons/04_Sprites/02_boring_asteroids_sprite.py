@@ -9,8 +9,8 @@ class Settings:
     height = 600
     fps = 60
     triangle_size = 20
-    projectile_speed = 0.67
-    projectile_size = 50
+    projectile_speed = 10
+    projectile_size = 25
     shoot_delay = 0.0002  # 250 milliseconds between shots, or 4 shots per second
     colors = {"white": (255, 255, 255), "black": (0, 0, 0), "red": (255, 0, 0)}
         
@@ -153,7 +153,7 @@ class Projectile(pygame.sprite.Sprite):
 class Game:
     """Class to manage the game loop and objects."""
 
-    def __init__(self, settings):
+    def __init__(self, settings): 
         pygame.init()
         pygame.key.set_repeat(1250, 1250)
         

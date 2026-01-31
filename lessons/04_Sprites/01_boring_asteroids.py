@@ -89,7 +89,7 @@ class Game:
         for projectile in self.projectiles:
             projectile.draw(self.screen)
         pygame.display.flip()
-
+ 
     def run(self):
         while self.running:
             self.handle_events()
