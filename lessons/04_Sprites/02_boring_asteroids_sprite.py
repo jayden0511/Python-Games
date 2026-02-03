@@ -6,7 +6,7 @@ class Settings:
     """Class to store game configuration."""
 
     width = 800
-    height = 600
+    height = 600 
     fps = 60
     triangle_size = 20
     projectile_speed = 10

@@ -6,7 +6,7 @@ class Settings:
     def __init__(self):
         self.width = 60
         self.height = 50
-        self.fps = 60
+        self.fps = 60 
         self.triangle_size = 200
         self.projectile_speed = 50
         self.colors = {
