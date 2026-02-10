@@ -112,7 +112,7 @@ class Spaceship(pygame.sprite.Sprite):
     # screen. We only need to add the sprite to a group and the group will take
     # care of drawing the sprite.
 
-        
+               
 
 class Projectile(pygame.sprite.Sprite):
     """Class to handle projectile movement and drawing."""
