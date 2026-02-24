@@ -76,7 +76,7 @@ class Spaceship(pygame.sprite.Sprite):
         # Important! The game will update all of the sprites in the group, so we
         # need to add the projectile to the group to make sure it is updated.
         self.game.add(new_projectile)
-
+ 
  
     # The Sprite class defines an update method that is called every frame. We
     # can override this method to add our own functionality. In this case, we
@@ -141,7 +141,7 @@ class Projectile(pygame.sprite.Sprite):
             self.settings.colors["red"],
             center=(half_size + 1, half_size + 1),
             radius=half_size,
-        )
+        ) 
 
         # Notice that we are using the rect attribute to store the position of the projectile
         self.rect = self.image.get_rect(center=position)
