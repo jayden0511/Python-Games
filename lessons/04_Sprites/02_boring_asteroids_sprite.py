@@ -7,7 +7,7 @@ class Settings:
 
     width = 800
     height = 600 
-    fps = 60
+    fps = 60 
     triangle_size = 20
     projectile_speed = 10
     projectile_size = 25
@@ -199,7 +199,7 @@ class Game:
 
     def run(self):
         """Main Loop for the game."""
-        
+            
        
         
         while self.running:
