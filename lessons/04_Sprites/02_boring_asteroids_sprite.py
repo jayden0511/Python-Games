@@ -5,7 +5,7 @@ import math
 class Settings:
     """Class to store game configuration."""
 
-    width = 800
+    width = 800 
     height = 600 
     fps = 60 
     triangle_size = 20
@@ -207,6 +207,7 @@ class Game:
             self.update()
             self.draw()
             self.clock.tick(self.settings.fps)
+            keys = pygame.key.get_pressed()
 
         pygame.quit()
 
