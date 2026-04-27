@@ -45,6 +45,7 @@ class Projectile:
         self.direction = pygame.Vector2(0, -1).rotate(angle)
         self.settings = settings
 
+
     def move(self):
         self.position += self.direction * self.settings.projectile_speed
 
