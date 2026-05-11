@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pygame
 import math
 
@@ -10,8 +12,7 @@ class Settings:
     fps = 60 
     triangle_size = 20
     projectile_speed = 10 
-    projectile_size = 25
-    shoot_delay = 0.0002  # 250 milliseconds between shots, or 4 shots per second
+    projectile_size = 250  # 250 milliseconds between shots, or 4 shots per second 
     colors = {"white": (255, 255, 255), "black": (0, 0, 0), "red": (255, 0, 0)}
         
 
@@ -95,7 +96,10 @@ class Spaceship(pygame.sprite.Sprite):
 
         if keys[pygame.K_SPACE] and self.ready_to_shoot():
             self.fire_projectile()
-
+        if keys[pygame.K_UP]:
+            self.velocity += pygame.Vector2(0, -0.1).rotate(self.angle)
+        if keys[pygame.K_DOWN]:
+            self.velocity += pygame.Vector2(0, 0.1).rotate(self.angle)
         self.image = pygame.transform.rotate(self.original_image, -self.angle)
 
         # Reassigning the rect because the image has changed.
@@ -111,9 +115,9 @@ class Spaceship(pygame.sprite.Sprite):
     # Sprite class already has a draw method that will draw the image on the
     # screen. We only need to add the sprite to a group and the group will take
     # care of drawing the sprite.
-
+                                                                                  
                
-
+                                      
 class Projectile(pygame.sprite.Sprite):
     """Class to handle projectile movement and drawing."""
 
@@ -123,7 +127,7 @@ class Projectile(pygame.sprite.Sprite):
         self.game = None  # will be set in Game.add()
         self.settings = settings
 
-        # The (0,-1) part makes the vector point up, and the rotate method
+        #  The (0,-1) part makes the vector point up, and the rotate method
         # rotates the vector by the given angle. Finally, we multiply the vector
         # by the velocity (scalar) to get the final velocity vector.
         self.velocity = pygame.Vector2(0, -1).rotate(angle) * velocity
