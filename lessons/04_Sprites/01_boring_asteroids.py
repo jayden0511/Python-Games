@@ -4,15 +4,15 @@ import math
 # Settings class to store game configuration
 class Settings: 
     def __init__(self):
-        self.width = 60
-        self.height = 50
+        self.width = 600
+        self.height = 500
         self.fps = 60 
-        self.triangle_size = 200
-        self.projectile_speed = 50
+        self.triangle_size = 20
+        self.projectile_speed = 5
         self.colors = {
             'white': (142, 145, 56),
             'black': (243, 121, 16),
-            'red': (31, 129, 195)
+            'red': (31, 129, 195)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
         }
 
 # Spaceship class to handle player movement and drawing
