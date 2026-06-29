@@ -12,7 +12,7 @@ class Settings:
     fps = 60 
     triangle_size = 20
     projectile_speed = 10 
-    projectile_size = 250  # 250 milliseconds between shots, or 4 shots per second 
+    projectile_size = 250  # 250 milliseconds between shots, or 4 shots per second  
     colors = {"white": (255, 255, 255), "black": (0, 0, 0), "red": (255, 0, 0)}
         
 
@@ -42,8 +42,7 @@ class Spaceship(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center=position)
 
         # These values help us limit the rate of fire
-        self.last_shot = pygame.time.get_ticks()
-        self.shoot_delay = self.settings.shoot_delay  
+        self.last_shot = pygame.time.get_ticks() 
 
     def create_spaceship_image(self):
         """Creates the spaceship shape as a surface."""
@@ -99,7 +98,7 @@ class Spaceship(pygame.sprite.Sprite):
         if keys[pygame.K_UP]: 
             self.velocity += pygame.Vector2(0, -0.1).rotate(self.angle)
         if keys[pygame.K_DOWN]:
-            self.velocity += pygame.Vector2(0, 0.1).rotate(self.angle)
+            self.velocity -= pygame.Vector2(0, 0.1).rotate(self.angle)
         self.image = pygame.transform.rotate(self.original_image, -self.angle)
 
         # Reassigning the rect because the image has changed.
@@ -222,9 +221,7 @@ if __name__ == "__main__":
 
     game = Game(settings)
 
-    spaceship = Spaceship(
-        settings, position=(settings.width // 2, settings.height // 2)
-    )
+    spaceship = Spaceship(settings, position=(settings.width // 2, settings.height // 2))
 
     game.add(spaceship)
 
