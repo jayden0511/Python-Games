@@ -161,7 +161,7 @@ class Game:
         self.screen = pygame.display.set_mode((self.settings.width, self.settings.height))
         
 
-        pygame.display.set_caption("Really Boring Asteroids")
+        pygame.display.set_caption("sonion")
 
         self.clock = pygame.time.Clock()
         self.running = True
@@ -211,7 +211,7 @@ class Game:
 
         pygame.quit()
 
-
+ 
 if __name__ == "__main__":
 
     settings = Settings()

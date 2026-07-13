@@ -6,9 +6,13 @@ All this game does is move a square around the screen using the arrow keys.
 The square is constrained to the screen, so it can't go off the edges. 
 
 """
-import pygame
+
+
 
 # Initialize Pygame
+
+import pygame
+
 pygame.init()
 
 # Constants
