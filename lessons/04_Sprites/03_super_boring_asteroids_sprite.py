@@ -14,7 +14,8 @@ class Settings:
     projectile_speed = 10 
     projectile_size = 12  # 250 milliseconds between shots, or 4 shots per second  
     colors = {"white": (255, 255, 255), "black": (0, 0, 0), "red": (255, 0, 0)}
-        
+
+
 
 # Notice that this Spaceship class is a bit different: it is a subclass of
 # Sprite. Rather than a plain class, like in the previous examples, this class
@@ -80,7 +81,8 @@ class Spaceship(pygame.sprite.Sprite):
     # we also need to call the update method of the parent class, so we use
     # super().update()
     def update(self):
-        
+        print("Projectile updating")
+        self.rect.y -= 10
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_LEFT]:                         
@@ -102,6 +104,19 @@ class Spaceship(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(center=self.rect.center)
         
         self.rect.center += self.velocity
+
+        if self.rect.left > self.settings.width:
+            self.rect.right = 0
+
+        if self.rect.right < 0:
+            self.rect.left = self.settings.width
+
+        if self.rect.top > self.settings.height:
+            self.rect.bottom = 0
+
+        if self.rect.bottom < 0:
+            self.rect.top = self.settings.height
+    
 
         # Dont forget this part! If you don't call the Sprite update method, the
         # sprite will not be drawn
@@ -146,8 +161,11 @@ class Projectile(pygame.sprite.Sprite):
         # Notice that we are using the rect attribute to store the position of the projectile
         self.rect = self.image.get_rect(center=position)
 
+
     def update(self):
         self.rect.center += self.velocity
+        self.kill()
+
 
 
 class Game:
