@@ -11,7 +11,7 @@ import random
 from pathlib import Path
 
 # Initialize Pygame
-pygame.init()
+pygame.init() 
 
 images_dir = Path(__file__).parent / "images" if (Path(__file__).parent / "images").exists() else Path(__file__).parent / "assets"
 
@@ -150,7 +150,7 @@ def game_loop():
         # Draw everything
         screen.fill(WHITE)
         pygame.draw.rect(screen, BLUE, player)
-        obstacles.draw(screen)
+        obstacles.draw(screen) 
 
         # Display obstacle count
         obstacle_text = font.render(f"Obstacles: {obstacle_count}", True, BLACK)

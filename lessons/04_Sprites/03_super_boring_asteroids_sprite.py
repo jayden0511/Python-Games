@@ -11,8 +11,8 @@ class Settings:
     height = 600
     fps = 60 
     triangle_size = 20
-    projectile_speed = 10 
-    projectile_size = 12  # 250 milliseconds between shots, or 4 shots per second  
+    projectile_speed = 10
+    projectile_size = 10 # 250 milliseconds between shots, or 4 shots per second  
     colors = {"white": (255, 255, 255), "black": (0, 0, 0), "red": (255, 0, 0)}
 
 
@@ -81,8 +81,9 @@ class Spaceship(pygame.sprite.Sprite):
     # we also need to call the update method of the parent class, so we use
     # super().update()
     def update(self):
-        print("Projectile updating")
+        
         self.rect.y -= 10
+        print("Projectile updating")
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_LEFT]:                         
@@ -164,7 +165,7 @@ class Projectile(pygame.sprite.Sprite):
 
     def update(self):
         self.rect.center += self.velocity
-        self.kill()
+        
 
 
 
