@@ -18,29 +18,31 @@ images_dir = Path(__file__).parent / "images" if (Path(__file__).parent / "image
 
 # Screen dimensions
 
-class settings:
-    settings.WIDTH, settings.HEIGHT = 600, 300
-    screen = pygame.display.set_mode((settings.WIDTH, settings.HEIGHT))
-    pygame.display.set_caption("Dino Jump")
+class Settings:
+    WIDTH, HEIGHT = 600, 300
+    
 
     # Colors
-    settings.BLUE = (0, 0, 255)
-    settings.BLACK = (0, 0, 0)
-    settings.WHITE = (255, 255, 255)
+    BLUE = (0, 0, 255)
+    BLACK = (0, 0, 0)
+    WHITE = (255, 255, 255)
 
     # FPS 
-    settings.FPS = 60 
+    FPS = 60 
 
     # Player attributes
-    settings.PLAYER_SIZE = 25
+    PLAYER_SIZE = 25
 
-    settings.player_speed = 5
+    player_speed = 5
 
     # Obstacle attributes
-    settings.OBSTACLE_WIDTH = 20
-    settings.OBSTACLE_HEIGHT = 20 
-    settings.obstacle_speed = 5
-    settings = settings()
+    OBSTACLE_WIDTH = 20
+    OBSTACLE_HEIGHT = 20 
+    obstacle_speed = 5
+
+settings = Settings()
+screen = pygame.display.set_mode((settings.WIDTH, settings.HEIGHT))
+pygame.display.set_caption("Dino Jump")
 
 # Font
 font = pygame.font.SysFont(None, 36)
@@ -150,21 +152,40 @@ def game_loop():
         collider = pygame.sprite.spritecollide(player, obstacles, dokill=False)
         if collider:
             collider[0].explode()
+            game_over =True
        
         # Draw everything
-        settings.screen.fill(settings.WHITE)
-        pygame.draw.rect(settings.screen, settings.BLUE, player)
-        obstacles.draw(settings.screen) 
+        screen.fill(settings.WHITE)
+        pygame.draw.rect(screen, settings.BLUE, player.rect)
+        obstacles.draw(screen) 
 
         # Display obstacle count
         obstacle_text = font.render(f"Obstacles: {obstacle_count}", True, settings.BLACK)
-        settings.screen.blit(obstacle_text, (10, 10))
+        screen.blit(obstacle_text, (10, 10))
 
         pygame.display.update()
         clock.tick(settings.FPS)
 
     # Game over screen
-    settings.screen.fill(settings.WHITE)
+    screen.fill(settings.WHITE)
+
+    game_over_text = font.render(
+        "GAME OVER!",
+        True,
+        settings.black
+    )
+
+    screen.blit(
+        game_over_text
+    (
+        settings.WIDTH // 2 - game_over_text.get_width() // 2,
+        settings.HEIGHT // 2 - game_over_text.get_height() // 2,
+    )
+    )
+
+    pygame.display.update()
+    pygame.time.wait(2000)
+
 
 if __name__ == "__main__":
     game_loop()
