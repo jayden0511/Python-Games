@@ -131,6 +131,7 @@ def game_loop():
     player = Player()
 
     obstacle_count = 0
+    obstacle_speed = settings.obstacle_speed
 
     while not game_over:
         for event in pygame.event.get():
@@ -142,9 +143,11 @@ def game_loop():
         player.update()
 
         # Add obstacles and update
-        if pygame.time.get_ticks() - last_obstacle_time > 500:
+        if pygame.time.get_ticks() - last_obstacle_time > 1:
             last_obstacle_time = pygame.time.get_ticks()
             obstacle_count += add_obstacle(obstacles)
+        if obstacle_count % 5 == 0:
+            settings.obstacle_speed += 1
         
         obstacles.update()
 
@@ -172,19 +175,44 @@ def game_loop():
     game_over_text = font.render(
         "GAME OVER!",
         True,
-        settings.black
+        settings.BLACK
+    )
+
+    restart_text = font.render(
+        "Press R to restart",
+        True,
+        settings.BLACK
     )
 
     screen.blit(
-        game_over_text
+        game_over_text,
     (
         settings.WIDTH // 2 - game_over_text.get_width() // 2,
         settings.HEIGHT // 2 - game_over_text.get_height() // 2,
     )
     )
 
+    screen.blit(
+            restart_text,
+        (
+            settings.WIDTH // 2 - restart_text.get_width() // 2,
+            settings.HEIGHT // 2 + 20,
+        )
+    )
+
     pygame.display.update()
-    pygame.time.wait(2000)
+
+    waiting = True
+
+    while waiting: 
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_r:
+                    waiting = False
+                    game_loop()
 
 
 if __name__ == "__main__":
